@@ -30,8 +30,8 @@ class Gists extends Component {
     await this.props.getGists(this.state.pagination.query);
   }
 
-  handleListItemClick = (el) => {
-    console.log(el);
+  handleListItemClick = () => {
+    console.log("item clicked");
   };
 
   addScrollEvent = () => {
