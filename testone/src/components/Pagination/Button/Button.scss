@@ -1,0 +1,28 @@
+.btn {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  color: rgb(121, 124, 128);
+  border: 1.5px solid rgb(214, 216, 218);
+  border-radius: 5px;
+  margin-right: 0.3rem;
+  padding: 0.2rem 0.5rem;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  &:hover:not(.disabled) {
+    cursor: pointer;
+    background-color: rgba(184, 182, 182, 0.2);
+  }
+
+  &:focus:not(.disabled) {
+    outline: none;
+    background-color: rgba(184, 182, 182, 0.4);
+  }
+}

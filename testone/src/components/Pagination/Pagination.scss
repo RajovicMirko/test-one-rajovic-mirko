@@ -1,0 +1,24 @@
+.pagination {
+  height: 29px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 1rem;
+
+  & .numbers {
+    color: rgb(6, 169, 246);
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+
+    & .page-number {
+      &:hover {
+        cursor: pointer;
+        color: rgb(143, 143, 1);
+      }
+    }
+
+    & .active {
+      color: rgb(0, 0, 0);
+    }
+  }
+}

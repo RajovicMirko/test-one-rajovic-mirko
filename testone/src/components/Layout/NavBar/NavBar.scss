@@ -1,0 +1,10 @@
+.nav-bar {
+  background-color: rgb(243, 243, 243);
+  padding: 0.3rem 1rem;
+  height: 20px;
+
+  & .banner {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+}
