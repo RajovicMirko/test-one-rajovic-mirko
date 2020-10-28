@@ -15,10 +15,14 @@ function Error(props) {
 
   return (
     error.hasError &&
-    <div className="error flex flex-column flex-center">
-        <img src={errorImage} alt="Error" />
-        <h4>{ error.type }</h4>
-        <p>{ error.message }</p>
+    <div className="error page page-center">
+        <div className="top">
+          <img src={errorImage} alt="Error" />
+          <div>
+            <h3>{ error.type }</h3>
+            <p>{ error.message }</p>
+          </div>
+        </div>
         <button className="btn btn-primary" onClick={handleClick}>Go Back</button>
     </div>
   )
