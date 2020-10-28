@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // ACTIONS
 import { getGists } from '../../store/actions/gists';
+import { error } from '../../store/actions/error';
 
 // COMPONENTS
 import List from '../../components/List';
@@ -32,6 +33,11 @@ class Gists extends Component {
 
   handleListItemClick = () => {
     console.log("item clicked");
+    this.props.error({
+      type: 'Get single gist',
+      message: `Error getting data for selected gist`,
+      goBack: '/gists'
+    });
   };
 
   addScrollEvent = () => {
@@ -107,7 +113,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getGists: (pagination) => dispatch(getGists(pagination))
+    getGists: (pagination) => dispatch(getGists(pagination)),
+    error: (errorObj) => dispatch(error(errorObj))
   }
 };
 

@@ -1,8 +1,7 @@
-import './Loading.scss';
 import React from 'react';
 
 function Loading() {
-  return <div className="loading">Loading...</div>
+  return <div className="loading page page-center">Loading...</div>
 };
 
 export default Loading;

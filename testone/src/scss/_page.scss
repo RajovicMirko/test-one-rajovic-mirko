@@ -1,8 +1,38 @@
 .page {
+  position: relative;
   min-height: 100%;
   display: grid;
 }
 
+.page-center {
+  place-items: center;
+}
+
+.page-header {
+  grid-template-rows: auto 1fr;
+}
+
 .page-footer {
   grid-template-rows: 1fr auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  @extend .justify-center;
+  @extend .align-center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
 }

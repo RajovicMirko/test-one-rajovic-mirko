@@ -1,5 +1,4 @@
 import axios from 'axios';
-axios.defaults.baseURL = process.env.REACT_APP_GIST_API_URL;
 
 const http = (method = null, url = null, data = null) => {
   const request = {};

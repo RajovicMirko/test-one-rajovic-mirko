@@ -1,28 +1,23 @@
-import axios from '../../utils/axios';
-
-const encodeQueryData = (data) => {
-  const query = [];
-  for (let key in data){
-    const value = encodeURIComponent(data[key]);
-    if(value) query.push(encodeURIComponent(key) + '=' + value);
-  }
-  return query.join('&');
-}
-
 export const getGists = (pagination = null) => {
-  return async (dispatch, getState) => {
+  return async (dispatch, getState, { Api }) => {
     dispatch({ type: 'GET_GISTS' })
 
-    let url = '/gists/public';
-    const query = encodeQueryData(pagination);
-    if(query) url += `?${query}`;
+    try {
+      const payload = await Api.gists.get(pagination);
 
-    const payload = await axios('get', url);
-
-    if(payload.status < 400){
-      dispatch({ type: 'GET_GISTS_SUCCESS', payload: payload.data});
-    } else {
-      dispatch({ type: 'GET_GISTS_ERROR' });
+      if(payload.status < 400){
+        dispatch({ type: 'GET_GISTS_SUCCESS', payload: payload.data});
+      } else {
+        dispatch({ type: 'GET_GISTS_ERROR' });
+      } 
+    } catch (error) {
+      dispatch({
+        type: 'ERROR',
+        error: {
+          type: 'Getting Gists',
+          message: 'Error while getting data from server'
+        }
+      });
     }
   }
 };
