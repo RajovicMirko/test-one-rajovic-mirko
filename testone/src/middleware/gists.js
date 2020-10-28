@@ -2,9 +2,12 @@ import axios from '../utils/axios';
 import { getApiUrl } from '../utils/api';
 
 export default (() => {
-  const apiUrl = '/gists/public';
+  const get = async (query) => {
+    const url = getApiUrl('/gists/public', query);
+    return await axios('get', url)
+  };
 
-  const get = async (query) => await axios('get', getApiUrl(apiUrl, query));
-
-  return { get }
+  return {
+    get
+  }
 })();

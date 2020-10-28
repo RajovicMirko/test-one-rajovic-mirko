@@ -1,24 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import NavBar from './NavBar';
-import Error from './Error';
+import ErrorWrapper from './Error';
 
 function Layout(props) {
-  const { error } = props;
-
   return (
     <div id="layout" className="page page-header">
       <NavBar />
-      { !error.hasError && props.children }
-      <Error />
+      <ErrorWrapper>
+        { props.children }
+      </ErrorWrapper>
     </div>
   )
 };
 
-const mapStateToProps = (state) => {
-  return {
-    error: state.error
-  }
-};
-
-export default connect(mapStateToProps)(Layout);
+export default Layout;

@@ -1,5 +1,7 @@
 import gists from './gists';
 
-export default {
+const rootApi = {
   gists
 }
+
+export default rootApi;

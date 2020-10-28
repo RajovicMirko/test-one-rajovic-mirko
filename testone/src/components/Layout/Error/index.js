@@ -14,17 +14,23 @@ function Error(props) {
   }
 
   return (
-    error.hasError &&
-    <div className="error page page-center">
-        <div className="top">
-          <img src={errorImage} alt="Error" />
-          <div>
-            <h3>{ error.type }</h3>
-            <p>{ error.message }</p>
-          </div>
+    <React.Fragment>
+      {
+        error.hasError &&
+        <div className="error page page-center">
+            <div className="top">
+              <img src={errorImage} alt="Error" />
+              <div>
+                <h3>{ error.type }</h3>
+                <p>{ error.message }</p>
+              </div>
+            </div>
+            <button className="btn btn-primary" onClick={handleClick}>Go Back</button>
         </div>
-        <button className="btn btn-primary" onClick={handleClick}>Go Back</button>
-    </div>
+      }
+
+      { !error.hasError && props.children }
+    </React.Fragment>
   )
 };
 
